@@ -1,198 +1,101 @@
-<p align="center">
-<img src="https://i.ibb.co/mCwWq30J/chatunity-bot.jpg" 
-</p>
+import { watchFile, unwatchFile } from 'fs';
+import chalk from 'chalk';
+import fs from 'fs';
+import { fileURLToPath, pathToFileURL } from 'url';
+import cheerio from 'cheerio';
+import fetch from 'node-fetch';
+import axios from 'axios';
+import moment from 'moment-timezone';
 
-<h1 align="center">© ChatUnity-Bot V11 🤖</h1>
-<p align="center"><strong>An advanced WhatsApp bot packed with features, automation, and entertainment.</strong></p>
-
-<p align="center">
-  <a href="https://whatsapp.com/channel/0029VaZVlJZHwXb8naJBQN0J">
-    <img src="https://img.shields.io/badge/Official_Channel-black?style=for-the-badge&logo=whatsapp" alt="Official Channel">
-  </a>
-</p>
-
-<p align="center"><strong>README Languages</strong></p>
-<p align="center">
-  <a href="./documentation/README.it.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%AE%F0%9F%87%B9-Italiano-2E8B57?style=for-the-badge" alt="README Italiano">
-  </a>
-  <a href="./documentation/README.es.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%AA%F0%9F%87%B8-Espa%C3%B1ol-FF8C00?style=for-the-badge" alt="README Español">
-  </a>
-  <a href="./documentation/README.fr.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%AB%F0%9F%87%B7-Fran%C3%A7ais-4169E1?style=for-the-badge" alt="README Français">
-  </a>
-  <a href="./documentation/README.pt.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%A7%F0%9F%87%B7-Portugu%C3%AAs-228B22?style=for-the-badge" alt="README Português">
-  </a>
-  <a href="./documentation/README.de.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%A9%F0%9F%87%AA-Deutsch-696969?style=for-the-badge" alt="README Deutsch">
-  </a>
-</p>
-
-<p align="center">
-  <a href="./documentation/README.zh.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%A8%F0%9F%87%B3-%E4%B8%AD%E6%96%87-C62828?style=for-the-badge" alt="README 中文">
-  </a>
-  <a href="./documentation/README.ar.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%B8%F0%9F%87%A6-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-6A1B9A?style=for-the-badge" alt="README العربية">
-  </a>
-  <a href="./documentation/README.hi.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%AE%F0%9F%87%B3-%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80-E65100?style=for-the-badge" alt="README हिंदी">
-  </a>
-  <a href="./documentation/README.id.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%AE%F0%9F%87%A9-Bahasa_Indonesia-00897B?style=for-the-badge" alt="README Bahasa Indonesia">
-  </a>
-  <a href="./documentation/README.ru.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%B7%F0%9F%87%BA-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-3949AB?style=for-the-badge" alt="README Русский">
-  </a>
-  <a href="./documentation/README.tr.md">
-    <img src="https://img.shields.io/badge/%F0%9F%87%B9%F0%9F%87%B7-T%C3%BCrk%C3%A7e-AD1457?style=for-the-badge" alt="README Türkçe">
-  </a>
-</p>
-
----
-
-## 📌 Introduction
-
-© ChatUnity-Bot is a multifunctional WhatsApp bot designed to simplify chat management and provide advanced features. With an intuitive interface and easy setup, it is ideal for anyone who wants to improve their WhatsApp experience.
-
----
-
-## 🚀 Termux Installation
-
-### 1. Termux installation without ZIP (recommended)
-
-[![Tutorial Installazione](https://img.shields.io/badge/Tutorial-Installazione-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/qek7wWadhtI?feature=share)
-
-1. Download [Termux](https://www.mediafire.com/file/0npdmv51pnttps0/com.termux_0.119.1-119_minAPI21(arm64-v8a,armeabi-v7a,x86,x86_64)(nodpi)_apkmirror.com.apk/)
-2. Paste all commands below in one go, in the same order
-
-```bash
-termux-setup-storage && \
-pkg update && pkg upgrade -y && \
-pkg install git nodejs ffmpeg imagemagick yarn -y && \
-cd ~ && \
-git clone https://github.com/chatunitycenter/chatunity-bot.git && \
-cd chatunity-bot && \
-yarn install && \
-yarn start
-```
-
----
-
-### 2. Termux installation with ZIP (for developers)
-
-[![Tutorial Installazione](https://img.shields.io/badge/Tutorial-Installazione-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/qek7wWadhtI?feature=share)
-
-1. Download the bot ZIP from GitHub
-2. Download [Termux](https://www.mediafire.com/file/0npdmv51pnttps0/com.termux_0.119.1-119_minAPI21(arm64-v8a,armeabi-v7a,x86,x86_64)(nodpi)_apkmirror.com.apk/)
-3. Paste all commands below in Termux
-
-```bash
-termux-setup-storage && \
-pkg update && pkg upgrade -y && \
-pkg install x11-repo tur-repo -y && \
-pkg install git nodejs ffmpeg imagemagick yarn -y && \
-cd ~ && \
-cd ~/storage/downloads && \
-unzip chatunity-bot-main.zip && \
-cd chatunity-bot-main && \
-yarn install && \
-yarn start
-```
-
----
-
-### 3. Termux installation with your fork
-
-[![Tutorial Installazione](https://img.shields.io/badge/Tutorial-Installazione-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/qek7wWadhtI?feature=share)
-
-Use this method if you have your own fork and want to install directly from your repository.
-
-1. Create your fork of the project on GitHub
-2. Replace `YOUR-USERNAME` in the command below with your GitHub username
-3. Paste all commands below in one go inside Termux
-
-```bash
-termux-setup-storage && \
-pkg update && pkg upgrade -y && \
-pkg install git nodejs ffmpeg imagemagick yarn -y && \
-cd ~ && \
-git clone https://github.com/YOUR-USERNAME/chatunity-bot.git && \
-cd chatunity-bot && \
-yarn install && \
-yarn start
-```
-
-If your fork uses a different repository name, replace `chatunity-bot` in the clone command and in the `cd` command with the correct name.
-
----
-
-## 🕒 Stay online 24/7 with PM2 (Termux)
-
-<details>
-<summary><b>Click here to view the steps</b></summary>
-
-```bash
-npm i -g pm2
-pm2 start index.js
-pm2 save
-pm2 logs
-```
-
-</details>
-
----
-
-## 🌐 Installation on Windows/VPS/RDP
-
-<details>
-<summary><b>Click here to view the steps</b></summary>
-
-1. Download:
-   - [Git](https://git-scm.com/downloads)
-   - [NodeJS](https://nodejs.org/en/download)
-   - [FFmpeg](https://ffmpeg.org/download.html)
-   - [ImageMagick](https://imagemagick.org/script/download.php)
-
-2. Clone and install:
-   ```bash
-   git clone https://github.com/chatunitycenter/chatunity-bot
-   cd chatunity-bot
-   npm install
-   npm update
-   npm start
-   ```
-
-</details>
-
----
-
-## 📂 Useful Resources
-
-- **GitHub Dashboard**: [Visit here](https://github.com/chatunity-bot)
-- **WhatsApp Channel**: [Join here](https://whatsapp.com/channel/0029VaZVlJZHwXb8naJBQN0J)
-- **Contact**: [Write here](https://wa.me/393773842461)
-- **Collaborations**: [Join here](https://whatsapp.com/channel/0029Vb1C4od5vKA35u1Mqc06)
-
----
-
-## VPS ChatUnity
-
-Need a ready-to-use solution to keep the bot online 24/7 without configuring everything manually?
-
-ChatUnity VPS plans are designed to host the bot in a stable and continuous way.
-
-- Simple setup
-- Better stability for continuous use
-- Ideal for always-on bots
-
-For information and availability contact [393773842461](https://wa.me/393773842461).
+global.botnumber = '';
+global.confirmCode = '';
+global.nomebot = 'ʐąƙ ⍟ ცơɬ';
+global.packname = 'ʐąƙ ⍟ ცơɬ';
+global.author = 'ʐąƙ';
+global.vs = '1.0';
+global.collab = 'Demo';
+global.wm = global.nomebot;
+global.wait = 'ⓘ 𝐂𝐚𝐫𝐢𝐜𝐚𝐦𝐞𝐧𝐭𝐨 ...';
 
 
-## 📜 Licenza
+global.owner = [
+  ['212612624296', 'ʐąƙ', true],
+  ['393501989497', 'Endy' true],
+  ['27630793231', 'serena', true],
+  ['212772395146', 'ange', true],
+  ['237629999916', 'alice', true],
+  ['xxxxxxxxxx']
+];
 
-© ChatUnity-Bot. All rights reserved. Check the license for details.
 
-<p align="center"><strong>🌟 Support the project with a GitHub star! 🌟</strong></p>
+global.mods = ['xxxxxxxxxx'];
+global.prems = ['xxxxxxxxxx', 'xxxxxxxxxx'];
+
+global.multiplier = 69;
+global.maxwarn = '4';
+
+global.openai_key = 'sk-0';
+global.openai_org_id = 'org-3';
+
+global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f'];
+global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())];
+global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63'];
+global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())];
+global.keysneoxrrr = ['5VC9rvNx', 'cfALv5'];
+global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())];
+global.itsrose = ['4b146102c4d500809da9d1ff'];
+
+global.APIs = {
+  xteam: 'https://api.xteam.xyz',
+  dzx: 'https://api.dhamzxploit.my.id',
+  lol: 'https://api.lolhuman.xyz',
+  violetics: 'https://violetics.pw',
+  neoxr: 'https://api.neoxr.my.id',
+  zenzapis: 'https://api.zahwazein.xyz',
+  akuari: 'https://api.akuari.my.id',
+  akuari2: 'https://apimu.my.id',
+  fgmods: 'https://api-fgmods.ddns.net',
+  botcahx: 'https://api.botcahx.biz.id',
+  ibeng: 'https://api.ibeng.tech/docs',
+  rose: 'https://api.itsrose.site',
+  popcat: 'https://api.popcat.xyz',
+  xcoders: 'https://api-xcoders.site'
+};
+
+global.APIKeys = {
+  'https://api.xteam.xyz': global.keysxteam,
+  'https://api.lolhuman.xyz': '85faf717d0545d14074659ad',
+  'https://api.neoxr.my.id': global.keysneoxr,
+  'https://violetics.pw': 'beta',
+  'https://api.zahwazein.xyz': global.keysxxx,
+  'https://api-fgmods.ddns.net': 'fg-dylux',
+  'https://api.botcahx.biz.id': 'Admin',
+  'https://api.ibeng.tech/docs': 'tamvan',
+  'https://api.itsrose.site': 'Rs-Zeltoria',
+  'https://api-xcoders.site': 'Frieren',
+  openrouter: 'varebot'
+};
+
+global.cheerio = cheerio;
+global.fs = fs;
+global.fetch = fetch;
+global.axios = axios;
+global.moment = moment;
+global.rpg = {
+  emoticon(string) {
+    string = string.toLowerCase();
+
+    const results = Object.keys(emotttt).map(v => [v, new RegExp(v, 'gi')]).filter(v => v[1].test(string));
+    if (!results.length) return '';
+    return emotttt[results[0][0]];
+  }
+};
+
+
+
+const file = fileURLToPath(import.meta.url);
+watchFile(file, () => {
+  unwatchFile(file);
+  console.log(chalk.redBright("🔄 Config aggiornato: 'config.js'"));
+  import(`${pathToFileURL(file).href}?update=${Date.now()}`);
+});
