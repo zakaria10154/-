@@ -23,13 +23,12 @@ global.owner = [
   ['393501989497', 'Endy' true],
   ['27630793231', 'serena', true],
   ['212772395146', 'ange', true],
-  ['237629999916', 'alice', true],
-  ['xxxxxxxxxx']
-];
+  ['237629999916', 'alice', true];
+  
 
 
-global.mods = ['xxxxxxxxxx'];
-global.prems = ['xxxxxxxxxx', 'xxxxxxxxxx'];
+global.mods = ['212612624296'];
+global.prems = ['212612624296'];
 
 global.multiplier = 69;
 global.maxwarn = '4';
